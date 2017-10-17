@@ -3,14 +3,17 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 
 group 'jp.tentus'
-version '1.0'
+version '1.0.1'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 ext {
     commonsLang3Version = '3.4'
-    validationApiVersion = '1.1.0.Final'
+    hsqldbVersion = '2.3.5'
+    javaeeVersion = '7.0'
+    junitVersion = '4.12'
+    openJpaVersion = '2.4.2'
 }
 
 repositories {
@@ -26,10 +29,14 @@ idea {
 }
 
 dependencies {
-    compile("javax.validation:validation-api:${validationApiVersion}")
+    compile("javax:javaee-api:${javaeeVersion}")
     compile("org.apache.commons:commons-lang3:${commonsLang3Version}")
 
-    testCompile("junit:junit:4.12")
+    testCompile("junit:junit:${junitVersion}")
+    testCompile("org.apache.openjpa:openjpa:${openJpaVersion}")
+    testCompile("org.apache.openjpa:openjpa-persistence:${openJpaVersion}")
+    testCompile("org.apache.openjpa:openjpa-persistence-jdbc:${openJpaVersion}")
+    testCompile("org.hsqldb:hsqldb:${hsqldbVersion}")
 }
 
 jar {
