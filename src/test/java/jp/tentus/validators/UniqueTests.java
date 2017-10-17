@@ -16,6 +16,8 @@ public class UniqueTests {
      * テストデータを登録します。
      */
     private void createTestData() {
+        new SampleEntity();
+
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("sample");
         EntityManager em = factory.createEntityManager();
 
@@ -27,8 +29,6 @@ public class UniqueTests {
         em.flush();
 
         em.getTransaction().commit();
-        em.clear();
-        em.close();
     }
 
     /**

@@ -3,13 +3,14 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 
 group 'jp.tentus'
-version '1.0.1'
+version '1.0.2'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 ext {
     commonsLang3Version = '3.4'
+    hibernateVersion = '5.2.11.Final'
     hsqldbVersion = '2.3.5'
     javaeeVersion = '7.0'
     junitVersion = '4.12'
@@ -33,9 +34,8 @@ dependencies {
     compile("org.apache.commons:commons-lang3:${commonsLang3Version}")
 
     testCompile("junit:junit:${junitVersion}")
-    testCompile("org.apache.openjpa:openjpa:${openJpaVersion}")
-    testCompile("org.apache.openjpa:openjpa-persistence:${openJpaVersion}")
-    testCompile("org.apache.openjpa:openjpa-persistence-jdbc:${openJpaVersion}")
+    testCompile("org.hibernate:hibernate-core:${hibernateVersion}")
+    testCompile("org.hibernate:hibernate-entitymanager:${hibernateVersion}")
     testCompile("org.hsqldb:hsqldb:${hsqldbVersion}")
 }
 
