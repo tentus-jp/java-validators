@@ -18,17 +18,23 @@ public class UniqueTests {
     private void createTestData() {
         new SampleEntity();
 
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("sample");
-        EntityManager em = factory.createEntityManager();
+        try {
+            Class.forName("org.hsqldb.jdbc.JDBCDriver");
 
-        em.getTransaction().begin();
+            EntityManagerFactory factory = Persistence.createEntityManagerFactory("sample");
+            EntityManager em = factory.createEntityManager();
 
-        SampleEntity sample1 = new SampleEntity("Hello !!");
+            em.getTransaction().begin();
 
-        em.persist(sample1);
-        em.flush();
+            SampleEntity sample1 = new SampleEntity("Hello !!");
 
-        em.getTransaction().commit();
+            em.persist(sample1);
+            em.flush();
+
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**

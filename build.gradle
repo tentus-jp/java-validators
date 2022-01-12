@@ -3,15 +3,15 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 
 group 'jp.tentus'
-version '1.0.2'
+version '1.0.3'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 17
+targetCompatibility = 17
 
 ext {
-    commonsLang3Version = '3.4'
-    hibernateVersion = '5.2.11.Final'
-    hsqldbVersion = '2.3.5'
+    commonsLang3Version = '3.12.0'
+    hibernateVersion = '5.6.3.Final'
+    hsqldbVersion = '2.6.1'
     javaeeVersion = '7.0'
     junitVersion = '4.12'
     openJpaVersion = '2.4.2'
@@ -30,15 +30,15 @@ idea {
 }
 
 dependencies {
-    compile("javax:javaee-api:${javaeeVersion}")
-    compile("org.apache.commons:commons-lang3:${commonsLang3Version}")
+    implementation("javax:javaee-api:${javaeeVersion}")
+    implementation("org.apache.commons:commons-lang3:${commonsLang3Version}")
 
-    testCompile("junit:junit:${junitVersion}")
-    testCompile("org.hibernate:hibernate-core:${hibernateVersion}")
-    testCompile("org.hibernate:hibernate-entitymanager:${hibernateVersion}")
-    testCompile("org.hsqldb:hsqldb:${hsqldbVersion}")
+    testImplementation("junit:junit:${junitVersion}")
+    testImplementation("org.hibernate:hibernate-core:${hibernateVersion}")
+    testImplementation("org.hibernate:hibernate-entitymanager:${hibernateVersion}")
+    testImplementation("org.hsqldb:hsqldb:${hsqldbVersion}")
 }
 
 jar {
-    baseName = 'validators'
+    archiveBaseName = 'validators'
 }
